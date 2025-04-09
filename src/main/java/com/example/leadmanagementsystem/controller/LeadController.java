@@ -2,9 +2,12 @@ package com.example.leadmanagementsystem.controller;
 import com.example.leadmanagementsystem.dto.LeadDTO;
 import com.example.leadmanagementsystem.entity.Lead;
 import com.example.leadmanagementsystem.service.LeadService;
+import com.example.leadmanagementsystem.repository.LeadRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
+import java.util.Optional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +21,9 @@ import java.util.UUID;
 public class LeadController {
 
     private final LeadService leadService;
+
+ 
+private final LeadRepository leadRepository;
 
 
      // Creates a new lead
