@@ -44,12 +44,6 @@ private final LeadRepository leadRepository;
     // Deletes a lead by ID.
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteLead(@PathVariable UUID id) {
-      Optional<Lead> lead =  leadRepository.findById(id);
-
-        if (lead.isEmpty()) {
-            // Throw ResourceNotFoundException if lead does not exist
-            throw new EntityNotFoundException("Lead not found with id " + id);
-        }
 
         // Delete the lead
         leadService.deleteLead(id);
